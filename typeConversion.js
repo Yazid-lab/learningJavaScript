@@ -1,6 +1,6 @@
 //String conversion
 let value =true;
-alert(typeof(value));
+console.log(typeof(value));
 
 value=String(value);
-alert(typeof(value));
+console.log(typeof(value));
