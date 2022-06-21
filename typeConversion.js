@@ -1,4 +1,4 @@
-//String conversion
+/* //String conversion
 let value =true;
 console.log(typeof(value));
 
@@ -15,5 +15,10 @@ console.log(typeof(number)); // number
 console.log(Number("   123   "));// 123
 console.log(Number("123z"));// NaN
 console.log(Number(true));// 1
-console.log(Number(false));// 0
+console.log(Number(false));// 0 */
 
+// Boolean conversion
+console.log(Boolean(1));
+console.log(Boolean(0));
+console.log(Boolean("hello"));
+console.log(Boolean(""));
