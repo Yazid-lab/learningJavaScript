@@ -85,7 +85,7 @@ let c = {};
 let d = {};
 console.log(c==d);// false
 
- */
+
 
 // Cloning objects:
 
@@ -107,4 +107,52 @@ let permission2 = {canEdit: true};
 Object.assign(user,permission1,permission2);
 console.log(user);
 
-// TODO Garbage Collection
+// Garbage Collection
+// it's based on the principle of reachablity: A rechable value is one that is accessible or usable somehow.
+// Examples:
+let user = {
+    name:"john"
+};
+// here the variable user references the object {name: "john"} 
+user= null; // if the value of user is overwritten the reference is lost and thus the object becomes unreachable. Garbage collection willl junk the data
+// and free the memory.
+
+// Two references:
+let admin=user;
+
+user=null // the object is still reachable via the admin variable, so it must stay in the memory. If we overwrite admin too then it will be removed
+
+//Interlinked Objects:
+
+function marry(man,woman){
+    woman.husband= man;
+    man.wife = woman;
+    return {
+        father:man,
+        mother: woman
+    }
+}
+let family = marry({
+    name: "john"
+},{
+    name: "ann"
+});
+// Function marry marries two objects by giving them reference to each other and return a new object that contains them both.
+// As of now all objects are reachable. Now let's remove few references
+delete family.father;
+delete family.mother.husband;
+// the objects john now has no incoming references so it's no longer reachable and will be removed from the memory. Notice that only incoming references can 
+//make an object reachable.
+
+
+// Unreachable island:
+
+// it is possible that the whole island of interlinked objects becomes unreachable and is removed from the memory.
+
+family= null;
+
+
+ */
+// OPTIONAL CHAINING:
+let user={} // has no address.
+console.log(user?.address?.street); // undefined (no errors)
