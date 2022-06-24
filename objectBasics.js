@@ -1,4 +1,4 @@
-/* let obj= new Object(); // "object constructor" syntax
+let obj= new Object(); // "object constructor" syntax
 let object = {} // "object literal" syntax
 
 let user = {//object
@@ -152,7 +152,7 @@ delete family.mother.husband;
 family= null;
 
 
- */
+
 // OPTIONAL CHAINING:
 let user={} // has no address.
 console.log(user?.address?.street); // undefined (no errors)
